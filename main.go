@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"strings"
 
 	"github.com/akbarbudiman/personal-designpattern/src/behavioral/strategy"
+	"github.com/akbarbudiman/personal-designpattern/src/creational/singleton"
 )
 
 func main() {
@@ -13,8 +13,6 @@ func main() {
 	fmt.Println("Example of Strategy Design Pattern. After:")
 	strategy.StrategyAfterExample()
 
-	b := &strings.Builder{}
-	b.WriteString("a")
-	b.WriteString("b")
-	fmt.Println(b.String())
+	fmt.Println("Example of Singleton")
+	singleton.SingletonExample()
 }
