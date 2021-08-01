@@ -1,17 +1,23 @@
-// Singleton is a creational design pattern that lets you ensure that a class has only one instance,
-// while providing a global access point to this instance.
+/*
+	Singleton is a creational design pattern that lets you ensure that a class has only one instance,
+	while providing a global access point to this instance.
+
+	Don't depend directly on singleton.
+	Depend on some interface that singleton implements
+*/
 
 package singleton
 
 import (
 	"fmt"
 	"sync"
+	"time"
 )
 
 var lock = &sync.Mutex{}
+var once sync.Once
 
-type singletonClass struct {
-}
+type singletonClass struct{}
 
 var singletonInstance *singletonClass
 
@@ -33,7 +39,6 @@ func getInstance() *singletonClass {
 
 func getInstanceWithSync() {
 	if singletonInstance == nil {
-		var once sync.Once
 		once.Do(
 			func() {
 				fmt.Println("Creating single instance now.")
@@ -52,5 +57,6 @@ func Example() {
 	for i := 0; i < 5; i++ {
 		go getInstanceWithSync()
 	}
-	fmt.Scanln()
+	time.Sleep(time.Second)
+	//fmt.Scanln()
 }
