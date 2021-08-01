@@ -14,5 +14,5 @@ func main() {
 	strategy.StrategyAfterExample()
 
 	fmt.Println("Example of Singleton")
-	singleton.SingletonExample()
+	singleton.Example()
 }

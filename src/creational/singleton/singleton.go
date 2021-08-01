@@ -28,13 +28,29 @@ func getInstance() *singletonClass {
 	} else {
 		fmt.Println("Single instance already created.")
 	}
-
 	return singletonInstance
 }
 
-func SingletonExample() {
-	for i := 0; i < 30; i++ {
+func getInstanceWithSync() {
+	if singletonInstance == nil {
+		var once sync.Once
+		once.Do(
+			func() {
+				fmt.Println("Creating single instance now.")
+				singletonInstance = &singletonClass{}
+			},
+		)
+	} else {
+		fmt.Println("Single instance already created.")
+	}
+}
+
+func Example() {
+	for i := 0; i < 5; i++ {
 		go getInstance()
+	}
+	for i := 0; i < 5; i++ {
+		go getInstanceWithSync()
 	}
 	fmt.Scanln()
 }

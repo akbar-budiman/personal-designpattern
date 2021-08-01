@@ -33,7 +33,6 @@ func (lb *listBuilder) create(lang Format, listName string, items []string) {
 }
 
 func (lb *listBuilder) String() string {
-	fmt.Println(lb.builder.String())
 	return lb.builder.String()
 }
 
