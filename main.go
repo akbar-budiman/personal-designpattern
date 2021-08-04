@@ -15,8 +15,12 @@ func main() {
 	//
 	//printTitle("Example of Adapter")
 	//adapter.Example()
-	printTitle("Example of Decorator")
-	decorator.Example()
+	//printTitle("Example of Decorator")
+	//decorator.Example()
+	printTitle("Example of Multiple Inheritance Before")
+	decorator.MultipleInheritanceBeforeExample()
+	printTitle("Example of Multiple Inheritance After")
+	decorator.MultipleInheritanceAfterExample()
 
 
 	//printTitle("Example of Strategy Design Pattern. Before:")
